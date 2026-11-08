@@ -1,0 +1,47 @@
+yolo:
+  models: [
+      "yolo11n-seg",
+      "yolo11s-seg",
+      "yolo11m-seg",
+      ]
+  augmentation: [
+    False,
+    True
+  ]
+
+  epochs: 100
+  batch_size: 20
+  weight_decay: 0.0036
+  lr0: 0.0013
+  lrf: 0.001
+  device: "mps"
+  imgsz: 416
+  seed: 1
+  optimizer: "Adam"
+  dropout: 0.44
+  resume: True
+  patience: 30
+
+unet:
+  epochs: 20
+  batch_size: 10
+  device: "cuda"
+  size: 400
+  lr: 0.00067
+  dropout: 0.21
+  optimizer: "Adam"
+  label_smoothing: 0.08
+  depth: 2
+  scale_factor: 1
+  dice_weight: 0.7236
+  focal_weight: 0.3344
+  boundary_weight: 0.19
+  focal_alpha: 0.7815
+  focal_gamma: 2.18
+  yolo_path_with_augmentation: "artifacts/models/yolo11l-seg - True/train/weights/best.pt"
+  yolo_path_without_augmentation: "artifacts/models/yolo11l-seg - False/train/weights/best.pt"
+  scheduler_patience: 3
+  scheduler_factor: 0.1
+  scheduler_min_lr: 1e-6
+  early_stopping_patience: 10
+  mc_dropout_samples: 10

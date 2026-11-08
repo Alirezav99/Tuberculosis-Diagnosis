@@ -1,0 +1,106 @@
+/artifacts/*
+!/artifacts/dataset/
+!/artifacts/models/
+/artifacts/dataset/*
+/artifacts/models/*
+!/artifacts/models/README.md
+!/artifacts/dataset/.gitkeep
+!/artifacts/models/.gitkeep
+!/artifacts/dataset/*/
+!/artifacts/models/*/
+/artifacts/dataset/*/*
+/artifacts/models/*/*
+!/artifacts/dataset/*/.gitkeep
+!/artifacts/models/*/.gitkeep
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+
+# Poetry virtual environment
+.venv/
+
+# VS Code config (if using)
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Test or coverage artifacts
+.coverage
+htmlcov/
+.tox/
+.nox/
+pytest_cache/
+.cache/
+
+# mypy and other tool caches
+.mypy_cache/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+# Jupyter Notebook metadata
+.metadata/
+
+.env
+
+# LaTeX build files
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.tocå
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.png
+*.gz
+
+*.ipynb
+
+literature.txt
+/docs/paper/literature/
+/docs/
+paper.pdf
+
+
+# dataset
+*.jpg
+*.jpeg
+
+*.yaml
+!*.example.yaml
+
+*.yml
+!*.example.yml
+
+*.env
+!*.env.example
+
+# Large local model weights
+/yolo11l-seg.pt
+
+# Local agent instructions (any directory)
+[Aa][Gg][Ee][Nn][Tt].[Mm][Dd]
+[Aa][Gg][Ee][Nn][Tt][Ss].[Mm][Dd]
+
+# Local codebase knowledge graph
+/.codebase-memory/
+
+# Generated experiment outputs (scripts remain trackable)
+/experiments/*.csv
+/experiments/q14_spatial_debiasing*/
+/experiments/analysis/reviewer_*/
+/experiments/analysis/equation_loss_verification*/
+/experiments/analysis/benchmark*/
+/experiments/analysis/q13_benchmark*/
