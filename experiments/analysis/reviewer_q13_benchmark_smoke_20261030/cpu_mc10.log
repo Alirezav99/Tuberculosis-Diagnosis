@@ -1,0 +1,3 @@
+cpu_mc10: warmup complete; first call 2933.5 ms
+cpu_mc10: repeat 1 finished in 5.7 s
+cpu_mc10: completed; mean 2845.3 ms

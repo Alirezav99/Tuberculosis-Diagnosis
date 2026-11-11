@@ -1,0 +1,7 @@
+{
+  "yolo_checkpoint": "artifacts/analysis/reviewer_q4_lowload_20261030/yolo_runs/lowload_holdout/weights/best.pt",
+  "confidence_threshold": 0.25,
+  "input_size": 400,
+  "prediction_batch_size": 16,
+  "nms_time_guard_seconds_per_image": 10.0
+}

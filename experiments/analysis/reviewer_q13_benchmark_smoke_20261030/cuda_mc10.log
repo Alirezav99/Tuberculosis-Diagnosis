@@ -1,0 +1,3 @@
+cuda_mc10: warmup complete; first call 504.5 ms
+cuda_mc10: repeat 1 finished in 0.4 s
+cuda_mc10: completed; mean 215.7 ms

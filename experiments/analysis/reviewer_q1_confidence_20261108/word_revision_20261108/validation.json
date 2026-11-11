@@ -1,0 +1,33 @@
+{
+  "Manuscript 14050514.docx": {
+    "original_sha256": "d9ef69e361cdfd32a0efd64645555c7515d061e011089797638af1734a33f199",
+    "revised_sha256": "2ca3a2996cb5f91a4bb03d319b7268caf2010bc42757273d504a9fe4f6203519",
+    "modified_zip_members": [
+      "word/document.xml"
+    ]
+  },
+  "Responses.docx": {
+    "original_sha256": "4d27bd18f7c97ee32deaa3ccf2062c104ad2f336ffce822ca3a8293b931775ab",
+    "revised_sha256": "c4104b78aac373edb9e1be71afd9672fc13ce81489fe80b7ba70428f6550e3c1",
+    "modified_zip_members": [
+      "word/document.xml"
+    ]
+  },
+  "validation": {
+    "result_values_match_experiment": true,
+    "new_table_yellow_highlight": true,
+    "all_existing_tables_preserved": true,
+    "equations_fields_drawings_bookmarks_preserved": true,
+    "other_reviewer_answers_preserved": true,
+    "manuscript_pages": 32,
+    "responses_pages": 23,
+    "results_section": "4.7",
+    "results_pages": [
+      27,
+      28
+    ],
+    "results_table": 13,
+    "response_location": "Reviewer 6 Q7",
+    "visual_review": "Rendered both documents; inspected page layouts and revised passages."
+  }
+}

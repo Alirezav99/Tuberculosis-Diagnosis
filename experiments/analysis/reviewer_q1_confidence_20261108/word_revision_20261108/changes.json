@@ -1,0 +1,76 @@
+[
+  {
+    "old": "During inference, dropout remained active for 10 stochastic forward passes.",
+    "new": "For this separate uncertainty analysis, dropout remained active for 10 stochastic forward passes."
+  },
+  {
+    "old": "exceeds 0.5",
+    "new": "is at least 0.5"
+  },
+  {
+    "old": "To assess detection and segmentation performance, the following metrics are employed across all experiments. They are reported separately for mask-level and box-level predictions, reflecting the two outputs of the pipeline.",
+    "new": "Detection and segmentation were assessed using the metrics described below. Ultralytics validation metrics for YOLO predictions and the connected-component metrics for refined binary masks use different implementations and are distinguished explicitly."
+  },
+  {
+    "old": "Mean Average Precision (mAP). mAP summarizes detection performance across IoU thresholds by computing the area under the precision--recall curve. Two variants are reported for both mask and bounding-box predictions: mAP@50, evaluated at a single IoU threshold of 0.5, and mAP@50-95, averaged over thresholds from 0.5 to 0.95 in steps of 0.05. Mask mAP captures the quality of predicted segmentation contours, while box mAP reflects localization accuracy independently of mask shape. mAP@50-95 is therefore a stricter criterion that rewards precise boundary delineation.",
+    "new": "Ultralytics Mean Average Precision (mAP). For YOLO predictions, Ultralytics computes confidence-ranked average precision from the precision\u2013recall curve. Mask and bounding-box mAP@50 are evaluated at an IoU threshold of 0.50, while mAP@50-95 averages results over thresholds from 0.50 to 0.95 in steps of 0.05."
+  },
+  {
+    "added": "Custom Component Scores. Refined binary masks were evaluated by labeling four-connected foreground components and greedily matching predictions to reference components. Precision, recall, and F1 were calculated from pooled true-positive, false-positive, and false-negative counts at IoU \u2265 0.50. The refiner scores historically labeled mAP@50 and mAP@50-95 in Tables 7 and 10 are precision-based component scores averaged across images, with the latter also averaged over the ten IoU thresholds. These scores are not standard confidence-ranked AP and should not be interpreted as directly equivalent to Ultralytics mAP. Section 4.7 reports their confidence intervals under the explicit label of custom component scores."
+  },
+  {
+    "added": "Bootstrap Confidence Intervals. Uncertainty in full-pipeline test performance was estimated by resampling the 1,000 DDS3 test images with replacement to generate 5,000 samples, each containing 1,000 image selections. Each selected image retained its predictions and reference annotations. Pooled component precision, recall, and F1 and image-mean custom scores were recalculated for each sample. The 2.5th and 97.5th percentiles defined the two-sided 95% confidence limits. The bootstrap random seed was 20261108. Resampling was performed at the complete mosaic-image level rather than at the pixel, bacillus, or constituent-patch level."
+  },
+  {
+    "old": "During inference, a confidence threshold of 0.5 was applied to YOLO predictions.",
+    "new": "For the full-pipeline accuracy results reproduced in Section 4.7, the YOLO confidence threshold was 0.25 and the U-Net probability threshold was 0.5. Single-pass inference was used with dropout disabled; MC Dropout was assessed separately."
+  },
+  {
+    "added": "Confidence Intervals for Full Pipeline Performance"
+  },
+  {
+    "added": "A supplementary evaluation quantified test-sample uncertainty for the saved YOLOv11l-seg and Attention U-Net checkpoints trained with spatial debiasing. No models were retrained. All 1,000 DDS3 test images and their filename-matched masks were evaluated using YOLO confidence 0.25, a U-Net probability threshold of 0.5, FP32 single-pass inference, and a U-Net batch size of 10. YOLO processed images at 416 \u00d7 416 pixels and U-Net at 400 \u00d7 400 pixels. The original test-image order and preprocessing were retained, and neither the source dataset nor the model checkpoints were changed. Evaluation used PyTorch 2.7.1+cu126, Ultralytics 8.3.227, and an NVIDIA GeForce RTX 4060 Ti GPU with 16 GB VRAM, separately from the historical software setup in Section 4.1."
+  },
+  {
+    "added": "The saved component precision, recall, and both custom component scores were reproduced exactly. F1 was calculated from the pooled component counts. Table 13 presents these estimates with 95% confidence intervals calculated using the bootstrap procedure in Section 3.3. These intervals concern the full pipeline only; no paired bootstrap comparison between ablation configurations was performed."
+  },
+  {
+    "added": "Table 13: Full-pipeline performance on the 1,000-image DDS3 test set with two-sided 95% percentile confidence intervals from 5,000 image-level bootstrap samples. Component precision, recall, and F1 use pooled counts at IoU \u2265 0.50. Custom scores preserve the original refiner calculation and are not standard confidence-ranked mAP."
+  },
+  {
+    "added": "The confidence intervals quantify uncertainty associated with the available test images for these fixed checkpoints. They do not assess variability across independent training runs or establish the statistical significance of differences between ablation configurations. Patient and slide identifiers were unavailable, so potential dependence between images from the same patient or slide could not be accounted for. These results do not establish external generalizability or clinical reliability."
+  },
+  {
+    "added": "The bootstrap analysis provides image-level confidence intervals for fixed trained models, but variability across independent training runs was not assessed. Resampling could not account for unknown patient- or slide-level grouping. The intervals therefore describe test-sample uncertainty under the evaluated DDS3 protocol and do not establish broader reproducibility or clinical reliability."
+  },
+  {
+    "added": "Thank you for this comment. We calculated 95% bootstrap confidence intervals to quantify uncertainty in the reported full-pipeline test performance. Using the saved model checkpoints and predictions for the 1,000 DDS3 test images, we generated 5,000 samples by sampling complete images with replacement. Each sample contained 1,000 image selections. Metrics were recalculated for each sample, and the 2.5th and 97.5th percentiles defined the confidence limits. No models were retrained."
+  },
+  {
+    "added": "The original component-level precision and recall were reproduced exactly. Precision was 0.9126 (95% CI: 0.9099\u20130.9151), recall was 0.9387 (95% CI: 0.9363\u20130.9409), and F1 was 0.9254 (95% CI: 0.9232\u20130.9276). The custom component score at IoU 0.50 was 0.9132 (95% CI: 0.9106\u20130.9158), and the custom score averaged over IoU thresholds 0.50\u20130.95 was 0.5213 (95% CI: 0.5193\u20130.5235). These custom scores preserve the original refiner calculation and are distinguished from standard confidence-ranked Ultralytics mAP."
+  },
+  {
+    "added": "The reproduced accuracy evaluation used a YOLO confidence threshold of 0.25, a U-Net probability threshold of 0.5, and single-pass inference with dropout disabled. The existing Monte Carlo Dropout analysis provides complementary estimates of pixel-wise prediction variability and was evaluated separately. We have clarified this distinction and the evaluation settings in the manuscript."
+  },
+  {
+    "added": "The bootstrap intervals quantify test-sample uncertainty for fixed trained models. They do not assess variability across independent training runs or establish significant differences between ablation configurations. Patient and slide identifiers were unavailable, so potential dependence between images from the same patient or slide could not be accounted for. We acknowledge these limitations and do not interpret these intervals as establishing external generalizability or clinical reliability."
+  },
+  {
+    "added": "Manuscript changes:"
+  },
+  {
+    "added": "1. Methodology, U-Net Refinement, Architecture: Attention U-Net (Section 3.2.2, page 15): Clarified that the ten-pass Monte Carlo Dropout analysis was separate from the dropout-disabled single-pass accuracy evaluation and the bootstrap confidence intervals."
+  },
+  {
+    "added": "2. Methodology, Evaluation Metrics (Section 3.3, pages 16\u201317): Clarified the inclusive IoU matching threshold, distinguished Ultralytics mAP from the refiner\u2019s custom connected-component scores, and added the complete bootstrap method, resampling unit, sample count, confidence-limit calculation, and random seed."
+  },
+  {
+    "added": "3. Experiments, Experimental Setup (Section 4.1, page 18): Corrected the description of the reproduced full-pipeline accuracy settings to detector confidence 0.25 and U-Net probability threshold 0.5, with dropout disabled. The separate computational benchmark in Section 4.6 retains its own recorded settings."
+  },
+  {
+    "added": "4. Experiments, new Confidence Intervals for Full Pipeline Performance subsection (Section 4.7, pages 27\u201328), Table 13 (page 28): Added the frozen-checkpoint evaluation protocol, saved-score reproduction, estimates and 95% bootstrap confidence intervals, and limitations. Existing section and table numbers were retained. The captions of Tables 7 and 10 now point to the custom-score definition in Section 3.3."
+  },
+  {
+    "added": "5. Conclusion, limitations (Section 5, page 29): Added the absence of independent training repetitions and the inability to account for unknown patient/slide grouping. All manuscript additions and replacements for this response are highlighted in yellow. Page locations refer to the rendered Word manuscript after this revision."
+  }
+]

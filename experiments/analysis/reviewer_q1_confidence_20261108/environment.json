@@ -1,0 +1,13 @@
+{
+  "python": "3.12.10",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+  "torch": "2.7.1+cu126",
+  "torchvision": "0.22.1+cu126",
+  "ultralytics": "8.3.227",
+  "scipy": "1.16.3",
+  "numpy": "2.3.4",
+  "opencv": "4.11.0",
+  "cuda": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA GeForce RTX 4060 Ti"
+}

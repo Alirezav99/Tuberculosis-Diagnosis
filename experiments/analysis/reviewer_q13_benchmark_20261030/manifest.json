@@ -1,0 +1,279 @@
+{
+  "started_at_utc": "2026-10-30T14:31:11.555545+00:00",
+  "experiment": "Supplementary end-to-end AFB inference cost benchmark",
+  "git_head": "d096a8bf977d8179010f47adb4ae69500202d252",
+  "hardware": {
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  32\nOn-line CPU(s) list:                     0-31\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Core(TM) i9-14900K\nCPU family:                              6\nModel:                                   183\nThread(s) per core:                      2\nCore(s) per socket:                      24\nSocket(s):                               1\nStepping:                                1\nCPU(s) scaling MHz:                      89%\nCPU max MHz:                             6000.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                6374.40\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               896 KiB (24 instances)\nL1i cache:                               1.3 MiB (24 instances)\nL2 cache:                                32 MiB (12 instances)\nL3 cache:                                36 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-31\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Mitigation; Clear Register File\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace",
+    "memory": "total        used        free      shared  buff/cache   available\nMem:     67167367168 15129567232  2123612160   586113024 51233710080 52037799936\nSwap:    32000438272      729088 31999709184",
+    "gpu_before": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], driver_version\nNVIDIA GeForce RTX 4060 Ti, 16380 MiB, 628 MiB, 88 %, 595.84",
+    "load_average_before": [
+      5.3564453125,
+      4.2490234375,
+      3.6201171875
+    ],
+    "load_average_after": [
+      11.46484375,
+      10.52783203125,
+      7.36865234375
+    ],
+    "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], driver_version\nNVIDIA GeForce RTX 4060 Ti, 16380 MiB, 684 MiB, 30 %, 595.84"
+  },
+  "settings": {
+    "seed": 20261030,
+    "unique_images": 50,
+    "repeats": 3,
+    "warmup_images": 5,
+    "cpu_threads": 8,
+    "batch_size": 1,
+    "input_size": [
+      400,
+      400
+    ],
+    "yolo_inference_size": [
+      416,
+      416
+    ],
+    "precision": "FP32 (no autocast or explicit FP16); backend TF32 flags recorded per case",
+    "yolo_confidence": 0.5,
+    "unet_threshold": 0.5,
+    "mc_samples": 10,
+    "read_decode_included": true,
+    "accuracy_scoring_included": false,
+    "output_file_writes_included": false
+  },
+  "checkpoints": {
+    "artifacts/models/yolo11l-seg - True/train/weights/best.pt": {
+      "sha256": "b03e225c03ea6b299166573b4dd728f9b1eebe668a8a4416ac66d20a35605e0d",
+      "bytes": 55807329
+    },
+    "artifacts/models/unet/with_augmentation/weights/best.pt": {
+      "sha256": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+      "bytes": 22713037
+    }
+  },
+  "source_sha256": {
+    "experiments/diagnostics/pipeline_benchmark.py": "8be0666cd831df31dd97b199753b7aa8850caa4a1e201fe7b26f37fd0be545c9",
+    "src/afb_segmentation/utils/yolo.py": "31b5172942b6fdc868b318903eaf9022904c0cff7ed17c533d1b6a7c1dedff95",
+    "src/afb_segmentation/utils/image_filtering.py": "4233b958cb70809c2e61abe02b824a019e15253a38b0ba0b7b12f4a235f82702",
+    "src/afb_segmentation/models/architectures/unet.py": "72bedd9f1e8b174c14de6550a6b90692d692d3158e0c1ed2b7b8dcd5948a305c",
+    "src/afb_segmentation/models/evaluation/uncertainty.py": "15c01866a1e6df4838e70dbce49e50fe5691964fb0b493399afde6385290616e",
+    "src/afb_segmentation/models/config.yml": "a06ee92547696d322a678fff16158e7907e3817ae8f342fbc7a8f1d51e9a9aec"
+  },
+  "images": [
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC120.png",
+      "sha256": "28a85fde569a86a412324b82291a04f971ac8ceac52cb2e2bea7190d3a3e7eea"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC132.png",
+      "sha256": "717fd054ba1491f10ceb93f44d456e0d162d4544cd52b75a9645c7df4b7a7d03"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC149.png",
+      "sha256": "f50f3e4a40faede1b33fc6cb866c178c0e83040fc7382bd4d2eb59dd393e53e4"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC174.png",
+      "sha256": "73ae57e7503de7cc0047f42f37f1b090c813e29cf8a77a407d41376105b362a9"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC182.png",
+      "sha256": "0c160d6a359860f3eba06b0013896f4dc0813593705903a0fc463c2775989393"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC211.png",
+      "sha256": "f73fdca4d65e42c59c455e48652bf61dcdb5aacd430820733885003f15f03518"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC228.png",
+      "sha256": "b44a938d2ba0b5ced0811e97815911b298b9fd7f5ecdedc7126eb3f6779b8b25"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC229.png",
+      "sha256": "092c756c5d0393664884efc285a0d82edc594c1d20d60ba3524d4a58b327c1b6"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC234.png",
+      "sha256": "290ef3d8f5cc075ba3b7bd37f8bd4497804dd28533d8b5af4a97d15a7a12295e"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC246.png",
+      "sha256": "f0265048c409db853927f74a1b5dd5b067dee6ee97bbe3c59271937b7e581a21"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC268.png",
+      "sha256": "7a3208a6985f57eeb7147a43ce19b189988b0b8f379bb6cb39019119f54f44b6"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC300.png",
+      "sha256": "b906b28cd951bb6bae2ebb4668c866dff972b15c34c5823c435cba1485a73fe1"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC32.png",
+      "sha256": "f10fa74975abf5d3923677ab0d57cf15756b8f604d48cb237dd1df101a87fe8b"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC34.png",
+      "sha256": "2fe64d28c2b2a4459c14037756d4d003d9d0f1df050a9ca7cbaf85faacb6d071"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC347.png",
+      "sha256": "540b220dfd1169f318de1af54117f91a0e993e19266d262d75bf312262b5425e"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC360.png",
+      "sha256": "5ec9868549983b93c56e4dcdb4e533b54cfe76ef7c96b0e76ca1e4387ad1c8e2"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC364.png",
+      "sha256": "949a0d6f878d06d898d879facd8538efd514ffbd8d7c63670e71e748278df61a"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC378.png",
+      "sha256": "2c3989999ead2fd65de762d090ed6327012064729611814f0668a8c62aa04f48"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC397.png",
+      "sha256": "4e436c840ab1999e180d785d958e4c9c306107d25bfe85b1e6d0975399adfd17"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC405.png",
+      "sha256": "3d26af732ad33a6d4df611234c2352c5275d67c7d3e5eb3098390f7e5b0af455"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC409.png",
+      "sha256": "710cd9eb9fe3adb4e639168055a1a7f20931183136a790f5f1c72582aef575ff"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC410.png",
+      "sha256": "fdc8ac6bcef89aca605d667178b4004441ba0694e305f982e587319d15826565"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC420.png",
+      "sha256": "da7f68f0d5593843de9815d195815568e0998a744c9e3cc02b9b6bbfd04e00b4"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC460.png",
+      "sha256": "97d46453eabbe8512d276461838142a0401a591bb5d803d0f3dc27d022b18aaf"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC478.png",
+      "sha256": "5c5188020224878ccc238cb1bed9f99d6dfe6f16dfa9bc9a87238f822b5b82af"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC479.png",
+      "sha256": "768dfd372c9e8a091d6776e3bdcf28f9e7ebca98f3d700be1be5cafc21fb16d4"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC482.png",
+      "sha256": "7fee5201bb82d178ca7292b083109165452135b1eddb0e46ceb6c002cc1b123e"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC504.png",
+      "sha256": "012f2f7f0adf77ab5cd6847d870357fb712a879847a776b7b063de002cd99db4"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC544.png",
+      "sha256": "07ce9cfd7c0f199ed8177afe6da9c6cd08e4470cd0b07b39acdf10786ff8df0f"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC554.png",
+      "sha256": "f8f652c00e067fe92283a07712a7ec46e7399e046d082863ca4eee18847b8aaa"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC575.png",
+      "sha256": "36691337bb993688aaa7334fdd2eaa60c3ef1fbcab2626965515bdeb4380a2fa"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC596.png",
+      "sha256": "c2b843ff5b5140a6a3e6bd92642e00595bd5ffa65461479dba271f10d741bdff"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC600.png",
+      "sha256": "9e3927b69b8f849ff212953d7ccd71d0483ae368bff0199b555c7a21aed585b8"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC614.png",
+      "sha256": "da7be35ee78519048563c2a8d1bae4311eb7b18704ec100f7e33a973a3a8121e"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC643.png",
+      "sha256": "bdb2ffa275143f639d680190ee158228973393c307976a36210d93ca4ffc7c17"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC664.png",
+      "sha256": "71082489701390a39de262d3a0a6ae222f593e063bffd1e787c4842fdfc07317"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC683.png",
+      "sha256": "b37c6d8c684a561c27d2f6cee76440d2128b26c4ee669e1e812154b0ff1283b7"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC705.png",
+      "sha256": "80465ceaf55215d305cdad4df65d5acfb6c886ad0c9cc36831fd3c53af610135"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC719.png",
+      "sha256": "52741584fec9e2aea5308be7c16c6331c8a8b72008a20e284ee6fefe14574a49"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC730.png",
+      "sha256": "0f1e9906bd288e18b0905667a55bc97f65daca62ae23ff11d8eb7b24095716b5"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC775.png",
+      "sha256": "2d0896a1bee53b55403d49ad735ab086798d6ebb32a547c031832559e0bd18f3"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC782.png",
+      "sha256": "9ba5175105e784f9f3ab59f459cc5919175b91d527b87f7394a9c6b6b326b14c"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC812.png",
+      "sha256": "07e5232c262f3ae4382e43f3709e3e9c117588f795db07ce0f289b105d841edc"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC83.png",
+      "sha256": "c2fb2486f244161a62eaad06ce2e42d0600f855ff29cb335c4f675cb8445f4b4"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC879.png",
+      "sha256": "deceba4d64b97f637d5d8904b2c9af6fcebee281b522696060f0da50c3610446"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC897.png",
+      "sha256": "2bc608c0eac1a528f92b830ea73f31ef668f6379825624fbe60424c3a13ef8af"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC909.png",
+      "sha256": "bfd0e6bbfc1ebb5a9c1e1a3d74ee8de08595f6f00e2f846c1ee2b28e5088625e"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC913.png",
+      "sha256": "f1925a8de9b3a70d0316d465397e408e53b5eae414ed27b5c33b7d3116b03fe6"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC948.png",
+      "sha256": "0c4b78ccf6ff48afb38b6529088ea4c18fa798d7b8efef314999058bdbaa3022"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC951.png",
+      "sha256": "8a4fea3e5ffe411d4706dbaaecedcbb77bcb03133019983194c23ec267e81d9d"
+    }
+  ],
+  "limitations": [
+    "Uses the saved augmented-data checkpoints; checkpoint identity relative to historical manuscript runs is not independently established.",
+    "Standalone Pipeline cannot be imported because MaskRefiner is missing; this harness composes the existing YOLO, filtering, U-Net and MC-dropout components directly.",
+    "One YOLO prediction is reused for filtering. The unusable Pipeline.__call__ contains another detector call; its literal runtime is not benchmarked.",
+    "Single-image serial inference, synchronized stages, warm loaded models and warmed filesystem cache; no batch-throughput or cold-start claim.",
+    "Runtime repetitions are not independent training runs or evidence of accuracy reproducibility.",
+    "CPU-only uses a high-end desktop CPU with eight PyTorch threads, not a validated low-cost laboratory computer.",
+    "GPU memory means PyTorch allocated/reserved memory, not total board memory or minimum supported hardware.",
+    "RSS includes Python, libraries and loaded model process memory; sampled runtime RSS and lifetime OS high-water values are distinguished.",
+    "Shared workstation with no exclusive GPU reservation; normal system activity may affect runtime.",
+    "No whole-slide acquisition, image stitching, data transfer from a microscope, storage or clinical workflow time is measured."
+  ],
+  "completed_at_utc": "2026-10-30T14:41:28.319277+00:00",
+  "input_integrity_verified_after_run": true
+}

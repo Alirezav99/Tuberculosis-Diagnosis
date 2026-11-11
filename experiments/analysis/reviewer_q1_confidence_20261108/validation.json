@@ -1,0 +1,10 @@
+{
+  "n_images": 1000,
+  "n_bootstrap_samples": 5000,
+  "all_cached_targets_match_original": true,
+  "all_reproduction_checks_pass": true,
+  "original_inputs_unchanged": true,
+  "gt_components": 50255,
+  "predicted_components": 51693,
+  "aggregation_and_resampling_synthetic_checks_pass": true
+}

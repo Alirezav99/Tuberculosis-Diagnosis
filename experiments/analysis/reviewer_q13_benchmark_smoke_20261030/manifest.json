@@ -1,0 +1,87 @@
+{
+  "started_at_utc": "2026-10-30T14:30:31.391879+00:00",
+  "experiment": "Supplementary end-to-end AFB inference cost benchmark",
+  "git_head": "d096a8bf977d8179010f47adb4ae69500202d252",
+  "hardware": {
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  32\nOn-line CPU(s) list:                     0-31\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Core(TM) i9-14900K\nCPU family:                              6\nModel:                                   183\nThread(s) per core:                      2\nCore(s) per socket:                      24\nSocket(s):                               1\nStepping:                                1\nCPU(s) scaling MHz:                      75%\nCPU max MHz:                             6000.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                6374.40\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize pconfig arch_lbr ibt flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               896 KiB (24 instances)\nL1i cache:                               1.3 MiB (24 instances)\nL2 cache:                                32 MiB (12 instances)\nL3 cache:                                36 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-31\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Mitigation; Clear Register File\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace",
+    "memory": "total        used        free      shared  buff/cache   available\nMem:     67167367168 15019462656  1528754176   597970944 51884597248 52147904512\nSwap:    32000438272      729088 31999709184",
+    "gpu_before": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], driver_version\nNVIDIA GeForce RTX 4060 Ti, 16380 MiB, 597 MiB, 7 %, 595.84",
+    "load_average_before": [
+      4.140625,
+      3.8505859375,
+      3.46533203125
+    ],
+    "load_average_after": [
+      5.998046875,
+      4.28466796875,
+      3.6162109375
+    ],
+    "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%], driver_version\nNVIDIA GeForce RTX 4060 Ti, 16380 MiB, 585 MiB, 26 %, 595.84"
+  },
+  "settings": {
+    "seed": 20261030,
+    "unique_images": 2,
+    "repeats": 1,
+    "warmup_images": 1,
+    "cpu_threads": 8,
+    "batch_size": 1,
+    "input_size": [
+      400,
+      400
+    ],
+    "yolo_inference_size": [
+      416,
+      416
+    ],
+    "precision": "FP32 (no autocast or explicit FP16); backend TF32 flags recorded per case",
+    "yolo_confidence": 0.5,
+    "unet_threshold": 0.5,
+    "mc_samples": 10,
+    "read_decode_included": true,
+    "accuracy_scoring_included": false,
+    "output_file_writes_included": false
+  },
+  "checkpoints": {
+    "artifacts/models/yolo11l-seg - True/train/weights/best.pt": {
+      "sha256": "b03e225c03ea6b299166573b4dd728f9b1eebe668a8a4416ac66d20a35605e0d",
+      "bytes": 55807329
+    },
+    "artifacts/models/unet/with_augmentation/weights/best.pt": {
+      "sha256": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+      "bytes": 22713037
+    }
+  },
+  "source_sha256": {
+    "experiments/diagnostics/pipeline_benchmark.py": "8be0666cd831df31dd97b199753b7aa8850caa4a1e201fe7b26f37fd0be545c9",
+    "src/afb_segmentation/utils/yolo.py": "31b5172942b6fdc868b318903eaf9022904c0cff7ed17c533d1b6a7c1dedff95",
+    "src/afb_segmentation/utils/image_filtering.py": "4233b958cb70809c2e61abe02b824a019e15253a38b0ba0b7b12f4a235f82702",
+    "src/afb_segmentation/models/architectures/unet.py": "72bedd9f1e8b174c14de6550a6b90692d692d3158e0c1ed2b7b8dcd5948a305c",
+    "src/afb_segmentation/models/evaluation/uncertainty.py": "15c01866a1e6df4838e70dbce49e50fe5691964fb0b493399afde6385290616e",
+    "src/afb_segmentation/models/config.yml": "a06ee92547696d322a678fff16158e7907e3817ae8f342fbc7a8f1d51e9a9aec"
+  },
+  "images": [
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC300.png",
+      "sha256": "b906b28cd951bb6bae2ebb4668c866dff972b15c34c5823c435cba1485a73fe1"
+    },
+    {
+      "path": "artifacts/dataset/dds3-restructured/test/images/MSC600.png",
+      "sha256": "9e3927b69b8f849ff212953d7ccd71d0483ae368bff0199b555c7a21aed585b8"
+    }
+  ],
+  "limitations": [
+    "Uses the saved augmented-data checkpoints; checkpoint identity relative to historical manuscript runs is not independently established.",
+    "Standalone Pipeline cannot be imported because MaskRefiner is missing; this harness composes the existing YOLO, filtering, U-Net and MC-dropout components directly.",
+    "One YOLO prediction is reused for filtering. The unusable Pipeline.__call__ contains another detector call; its literal runtime is not benchmarked.",
+    "Single-image serial inference, synchronized stages, warm loaded models and warmed filesystem cache; no batch-throughput or cold-start claim.",
+    "Runtime repetitions are not independent training runs or evidence of accuracy reproducibility.",
+    "CPU-only uses a high-end desktop CPU with eight PyTorch threads, not a validated low-cost laboratory computer.",
+    "GPU memory means PyTorch allocated/reserved memory, not total board memory or minimum supported hardware.",
+    "RSS includes Python, libraries and loaded model process memory; sampled runtime RSS and lifetime OS high-water values are distinguished.",
+    "Shared workstation with no exclusive GPU reservation; normal system activity may affect runtime.",
+    "No whole-slide acquisition, image stitching, data transfer from a microscope, storage or clinical workflow time is measured."
+  ],
+  "completed_at_utc": "2026-10-30T14:30:47.964178+00:00",
+  "input_integrity_verified_after_run": true
+}

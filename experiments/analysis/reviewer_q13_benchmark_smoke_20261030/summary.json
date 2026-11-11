@@ -1,0 +1,460 @@
+{
+  "cases": {
+    "cuda_single": {
+      "case": "cuda_single",
+      "device": "cuda:0",
+      "mode": "single",
+      "images": 2,
+      "repeats": 1,
+      "measurements": 2,
+      "stages_ms": {
+        "read_decode_ms": {
+          "mean": 3.567163999832701,
+          "median": 3.567163999832701,
+          "std": 0.016782471718526863,
+          "p95": 3.5778442994342186,
+          "min": 3.555297000275459,
+          "max": 3.5790309993899427
+        },
+        "yolo_predict_ms": {
+          "mean": 15.824901000087266,
+          "median": 15.824901000087266,
+          "std": 0.16762673452523788,
+          "p95": 15.931578000709123,
+          "min": 15.706370999396313,
+          "max": 15.943431000778219
+        },
+        "yolo_output_ms": {
+          "mean": 4.478893501072889,
+          "median": 4.478893501072889,
+          "std": 1.4029557134279698,
+          "p95": 5.3717290498752845,
+          "min": 3.486854002403561,
+          "max": 5.470932999742217
+        },
+        "distance_filter_ms": {
+          "mean": 3.9908340004330967,
+          "median": 3.9908340004330967,
+          "std": 0.2915882124095744,
+          "p95": 4.176399602511083,
+          "min": 3.784649998124223,
+          "max": 4.19701800274197
+        },
+        "tensor_transfer_ms": {
+          "mean": 0.6448754993471084,
+          "median": 0.6448754993471084,
+          "std": 0.03633468131248916,
+          "p95": 0.6679987489405903,
+          "min": 0.6191829997987952,
+          "max": 0.6705679988954216
+        },
+        "unet_ms": {
+          "mean": 18.222461001641932,
+          "median": 18.222461001641932,
+          "std": 2.434524806547054,
+          "p95": 19.771783101350593,
+          "min": 16.500992001965642,
+          "max": 19.943930001318222
+        },
+        "output_transfer_ms": {
+          "mean": 0.3766469981201226,
+          "median": 0.3766469981201226,
+          "std": 0.26673623212076797,
+          "p95": 0.5463968967887922,
+          "min": 0.18803599959937856,
+          "max": 0.5652579966408666
+        },
+        "end_to_end_ms": {
+          "mean": 47.105776000535116,
+          "median": 47.105776000535116,
+          "std": 4.083076387820085,
+          "p95": 49.704229902272345,
+          "min": 44.21860499860486,
+          "max": 49.99294700246537
+        }
+      },
+      "serial_images_per_second": 21.22881915773217,
+      "repeat_mean_end_to_end_ms": [
+        47.105776000535116
+      ],
+      "process_rss_before_measurement_mib": 1312.11328125,
+      "process_peak_rss_sampled_mib": 1320.57421875,
+      "process_lifetime_high_water_rss_mib": 1318.34765625,
+      "cuda_peak_allocated_mib": 520.78369140625,
+      "cuda_peak_reserved_mib": 700.0,
+      "model_load_seconds": 0.24099021700021694,
+      "warmup_end_to_end_ms": [
+        329.3056600014097
+      ],
+      "yolo_parameters_before_inference_fusion": 27617459,
+      "yolo_parameters_after_inference_fusion": 27585363,
+      "unet_parameters": 1885287,
+      "unet_checkpoint_epoch": 1,
+      "unet_architecture": {
+        "dropout": 0.21,
+        "depth": 2,
+        "scale_factor": 1
+      },
+      "python": "3.12.10 (main, Nov  3 2025, 14:42:40) [GCC 13.3.0]",
+      "torch": "2.7.1+cu126",
+      "ultralytics": "8.3.227",
+      "opencv": "4.11.0",
+      "numpy": "2.3.4",
+      "torch_cpu_threads_after_warmup": 8,
+      "opencv_threads": 1,
+      "torch_interop_threads": 1,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": false,
+      "model_dtypes": {
+        "yolo": "torch.float32",
+        "unet": "torch.float32"
+      }
+    },
+    "cuda_mc10": {
+      "case": "cuda_mc10",
+      "device": "cuda:0",
+      "mode": "mc10",
+      "images": 2,
+      "repeats": 1,
+      "measurements": 2,
+      "stages_ms": {
+        "read_decode_ms": {
+          "mean": 3.579185500711901,
+          "median": 3.579185500711901,
+          "std": 0.010028897138884302,
+          "p95": 3.585567851769156,
+          "min": 3.5720939995371737,
+          "max": 3.5862770018866286
+        },
+        "yolo_predict_ms": {
+          "mean": 14.25646400093683,
+          "median": 14.25646400093683,
+          "std": 1.5162561403221089,
+          "p95": 15.221403499890584,
+          "min": 13.184309002099326,
+          "max": 15.328618999774335
+        },
+        "yolo_output_ms": {
+          "mean": 4.348599499280681,
+          "median": 4.348599499280681,
+          "std": 1.3181340154847092,
+          "p95": 5.187454850056383,
+          "min": 3.4165379984187894,
+          "max": 5.2806610001425724
+        },
+        "distance_filter_ms": {
+          "mean": 4.015484997580643,
+          "median": 4.015484997580643,
+          "std": 0.2430637127630771,
+          "p95": 4.170169797180279,
+          "min": 3.843612998025492,
+          "max": 4.187356997135794
+        },
+        "tensor_transfer_ms": {
+          "mean": 0.6887850013299612,
+          "median": 0.6887850013299612,
+          "std": 8.768159982262103e-05,
+          "p95": 0.6888408015583991,
+          "min": 0.6887230010761414,
+          "max": 0.6888470015837811
+        },
+        "unet_ms": {
+          "mean": 188.3645805010019,
+          "median": 188.3645805010019,
+          "std": 3.002982797626942,
+          "p95": 190.27566705099161,
+          "min": 186.24115100101335,
+          "max": 190.48801000099047
+        },
+        "output_transfer_ms": {
+          "mean": 0.44464899838203564,
+          "median": 0.44464899838203564,
+          "std": 0.0889002930283117,
+          "p95": 0.501224798426847,
+          "min": 0.3817869983322453,
+          "max": 0.507510998431826
+        },
+        "end_to_end_ms": {
+          "mean": 215.69774849922396,
+          "median": 215.69774849922396,
+          "std": 6.179453537963856,
+          "p95": 219.63032864987326,
+          "min": 211.32821499850252,
+          "max": 220.0672819999454
+        }
+      },
+      "serial_images_per_second": 4.636117006124419,
+      "repeat_mean_end_to_end_ms": [
+        215.69774849922396
+      ],
+      "process_rss_before_measurement_mib": 1351.625,
+      "process_peak_rss_sampled_mib": 1360.328125,
+      "process_lifetime_high_water_rss_mib": 1357.68359375,
+      "cuda_peak_allocated_mib": 526.27685546875,
+      "cuda_peak_reserved_mib": 702.0,
+      "model_load_seconds": 0.2153051069981302,
+      "warmup_end_to_end_ms": [
+        504.5406700010062
+      ],
+      "yolo_parameters_before_inference_fusion": 27617459,
+      "yolo_parameters_after_inference_fusion": 27585363,
+      "unet_parameters": 1885287,
+      "unet_checkpoint_epoch": 1,
+      "unet_architecture": {
+        "dropout": 0.21,
+        "depth": 2,
+        "scale_factor": 1
+      },
+      "python": "3.12.10 (main, Nov  3 2025, 14:42:40) [GCC 13.3.0]",
+      "torch": "2.7.1+cu126",
+      "ultralytics": "8.3.227",
+      "opencv": "4.11.0",
+      "numpy": "2.3.4",
+      "torch_cpu_threads_after_warmup": 8,
+      "opencv_threads": 1,
+      "torch_interop_threads": 1,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": false,
+      "model_dtypes": {
+        "yolo": "torch.float32",
+        "unet": "torch.float32"
+      }
+    },
+    "cpu_single": {
+      "case": "cpu_single",
+      "device": "cpu",
+      "mode": "single",
+      "images": 2,
+      "repeats": 1,
+      "measurements": 2,
+      "stages_ms": {
+        "read_decode_ms": {
+          "mean": 3.611917498346884,
+          "median": 3.611917498346884,
+          "std": 0.12263282060801013,
+          "p95": 3.6899605474900454,
+          "min": 3.5252029992989264,
+          "max": 3.698631997394841
+        },
+        "yolo_predict_ms": {
+          "mean": 99.14528100125608,
+          "median": 99.14528100125608,
+          "std": 28.700037308830662,
+          "p95": 117.40987290249905,
+          "min": 78.85128999987501,
+          "max": 119.43927200263715
+        },
+        "yolo_output_ms": {
+          "mean": 3.6252940008125734,
+          "median": 3.6252940008125734,
+          "std": 0.005054401127072931,
+          "p95": 3.6285106019931845,
+          "min": 3.621719999500783,
+          "max": 3.6288680021243636
+        },
+        "distance_filter_ms": {
+          "mean": 4.105819498363417,
+          "median": 4.105819498363417,
+          "std": 0.48064664255455725,
+          "p95": 4.411701148637803,
+          "min": 3.7659509980585426,
+          "max": 4.445687998668291
+        },
+        "tensor_transfer_ms": {
+          "mean": 0.5314945010468364,
+          "median": 0.5314945010468364,
+          "std": 0.03669954841162488,
+          "p95": 0.5548499506403459,
+          "min": 0.5055440014984924,
+          "max": 0.5574450005951803
+        },
+        "unet_ms": {
+          "mean": 286.55911100031517,
+          "median": 286.55911100031517,
+          "std": 21.201789317558653,
+          "p95": 300.051847100076,
+          "min": 271.56718200058094,
+          "max": 301.5510400000494
+        },
+        "output_transfer_ms": {
+          "mean": 0.09451200094190426,
+          "median": 0.09451200094190426,
+          "std": 0.004717818000067169,
+          "p95": 0.09751440193213057,
+          "min": 0.09117599984165281,
+          "max": 0.09784800204215571
+        },
+        "end_to_end_ms": {
+          "mean": 397.67342950108286,
+          "median": 397.67342950108286,
+          "std": 49.33491012851137,
+          "p95": 429.0699740520722,
+          "min": 362.7883799999836,
+          "max": 432.55847900218214
+        }
+      },
+      "serial_images_per_second": 2.514626137468098,
+      "repeat_mean_end_to_end_ms": [
+        397.67342950108286
+      ],
+      "process_rss_before_measurement_mib": 835.5,
+      "process_peak_rss_sampled_mib": 1206.296875,
+      "process_lifetime_high_water_rss_mib": 1202.59375,
+      "cuda_peak_allocated_mib": null,
+      "cuda_peak_reserved_mib": null,
+      "model_load_seconds": 0.10981366399937542,
+      "warmup_end_to_end_ms": [
+        473.2835279974097
+      ],
+      "yolo_parameters_before_inference_fusion": 27617459,
+      "yolo_parameters_after_inference_fusion": 27585363,
+      "unet_parameters": 1885287,
+      "unet_checkpoint_epoch": 1,
+      "unet_architecture": {
+        "dropout": 0.21,
+        "depth": 2,
+        "scale_factor": 1
+      },
+      "python": "3.12.10 (main, Nov  3 2025, 14:42:40) [GCC 13.3.0]",
+      "torch": "2.7.1+cu126",
+      "ultralytics": "8.3.227",
+      "opencv": "4.11.0",
+      "numpy": "2.3.4",
+      "torch_cpu_threads_after_warmup": 8,
+      "opencv_threads": 1,
+      "torch_interop_threads": 1,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": false,
+      "model_dtypes": {
+        "yolo": "torch.float32",
+        "unet": "torch.float32"
+      }
+    },
+    "cpu_mc10": {
+      "case": "cpu_mc10",
+      "device": "cpu",
+      "mode": "mc10",
+      "images": 2,
+      "repeats": 1,
+      "measurements": 2,
+      "stages_ms": {
+        "read_decode_ms": {
+          "mean": 4.250482001225464,
+          "median": 4.250482001225464,
+          "std": 0.8531540310152841,
+          "p95": 4.793425901880255,
+          "min": 3.6472110004979186,
+          "max": 4.8537530019530095
+        },
+        "yolo_predict_ms": {
+          "mean": 119.77759799992782,
+          "median": 119.77759799992782,
+          "std": 57.74371860743289,
+          "p95": 156.52547549834708,
+          "min": 78.9466230016842,
+          "max": 160.60857299817144
+        },
+        "yolo_output_ms": {
+          "mean": 3.1144910008151783,
+          "median": 3.1144910008151783,
+          "std": 0.22356312431224637,
+          "p95": 3.2567657019171747,
+          "min": 2.9564079995907377,
+          "max": 3.272574002039619
+        },
+        "distance_filter_ms": {
+          "mean": 4.182204998869565,
+          "median": 4.182204998869565,
+          "std": 0.06931484751621217,
+          "p95": 4.226316697713628,
+          "min": 4.13319200015394,
+          "max": 4.2312179975851905
+        },
+        "tensor_transfer_ms": {
+          "mean": 0.4565899998851819,
+          "median": 0.4565899998851819,
+          "std": 0.0662488340680506,
+          "p95": 0.49875049971888075,
+          "min": 0.40974500006996095,
+          "max": 0.5034349997004028
+        },
+        "unet_ms": {
+          "mean": 2713.403218500389,
+          "median": 2713.403218500389,
+          "std": 215.92471400251134,
+          "p95": 2850.8168650476364,
+          "min": 2560.7213890034473,
+          "max": 2866.0850479973305
+        },
+        "output_transfer_ms": {
+          "mean": 0.07769900003040675,
+          "median": 0.07769900003040675,
+          "std": 0.0008513565646500191,
+          "p95": 0.07824080003047129,
+          "min": 0.07709700003033504,
+          "max": 0.07830100003047846
+        },
+        "end_to_end_ms": {
+          "mean": 2845.2622835011425,
+          "median": 2845.2622835011425,
+          "std": 156.96956591473133,
+          "p95": 2945.1571035495363,
+          "min": 2734.2680390029273,
+          "max": 2956.256527999358
+        }
+      },
+      "serial_images_per_second": 0.351461447262248,
+      "repeat_mean_end_to_end_ms": [
+        2845.2622835011425
+      ],
+      "process_rss_before_measurement_mib": 894.640625,
+      "process_peak_rss_sampled_mib": 1207.0390625,
+      "process_lifetime_high_water_rss_mib": 1203.23828125,
+      "cuda_peak_allocated_mib": null,
+      "cuda_peak_reserved_mib": null,
+      "model_load_seconds": 0.10975689900078578,
+      "warmup_end_to_end_ms": [
+        2933.5017840021465
+      ],
+      "yolo_parameters_before_inference_fusion": 27617459,
+      "yolo_parameters_after_inference_fusion": 27585363,
+      "unet_parameters": 1885287,
+      "unet_checkpoint_epoch": 1,
+      "unet_architecture": {
+        "dropout": 0.21,
+        "depth": 2,
+        "scale_factor": 1
+      },
+      "python": "3.12.10 (main, Nov  3 2025, 14:42:40) [GCC 13.3.0]",
+      "torch": "2.7.1+cu126",
+      "ultralytics": "8.3.227",
+      "opencv": "4.11.0",
+      "numpy": "2.3.4",
+      "torch_cpu_threads_after_warmup": 8,
+      "opencv_threads": 1,
+      "torch_interop_threads": 1,
+      "cudnn_benchmark": false,
+      "cudnn_allow_tf32": true,
+      "matmul_allow_tf32": false,
+      "model_dtypes": {
+        "yolo": "torch.float32",
+        "unet": "torch.float32"
+      }
+    }
+  },
+  "limitations": [
+    "Uses the saved augmented-data checkpoints; checkpoint identity relative to historical manuscript runs is not independently established.",
+    "Standalone Pipeline cannot be imported because MaskRefiner is missing; this harness composes the existing YOLO, filtering, U-Net and MC-dropout components directly.",
+    "One YOLO prediction is reused for filtering. The unusable Pipeline.__call__ contains another detector call; its literal runtime is not benchmarked.",
+    "Single-image serial inference, synchronized stages, warm loaded models and warmed filesystem cache; no batch-throughput or cold-start claim.",
+    "Runtime repetitions are not independent training runs or evidence of accuracy reproducibility.",
+    "CPU-only uses a high-end desktop CPU with eight PyTorch threads, not a validated low-cost laboratory computer.",
+    "GPU memory means PyTorch allocated/reserved memory, not total board memory or minimum supported hardware.",
+    "RSS includes Python, libraries and loaded model process memory; sampled runtime RSS and lifetime OS high-water values are distinguished.",
+    "Shared workstation with no exclusive GPU reservation; normal system activity may affect runtime.",
+    "No whole-slide acquisition, image stitching, data transfer from a microscope, storage or clinical workflow time is measured."
+  ]
+}

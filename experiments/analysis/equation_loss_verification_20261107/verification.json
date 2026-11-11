@@ -1,0 +1,491 @@
+{
+  "purpose": "Isolated implementation verification, not a segmentation experiment or estimate of training impact",
+  "git_head": "8451b0c52c226762c2513249fa470ba6e4112b6e",
+  "versions": {
+    "torch": "2.7.1+cu126",
+    "numpy": "2.3.4",
+    "scipy": "1.16.3"
+  },
+  "synthetic": {
+    "shape": [
+      1,
+      1,
+      400,
+      400
+    ],
+    "smoothing": 0.08,
+    "target_values": [
+      0.03999999910593033,
+      0.9600000381469727
+    ],
+    "binary_weights": {
+      "min": 2.5672485152546497e-37,
+      "max": 0.5986876487731934,
+      "mean": 0.004773525266332273,
+      "sum": 763.7640426131636,
+      "nonzero_pixels": 160000,
+      "total_pixels": 160000
+    },
+    "smoothed_weights": {
+      "min": 0.0,
+      "max": 0.5498340129852295,
+      "mean": 8.10781333146783e-05,
+      "sum": 12.972501330348528,
+      "nonzero_pixels": 53679,
+      "total_pixels": 160000
+    },
+    "binary_max_abs_difference_after_object_move": 0.5986876487731934,
+    "smoothed_max_abs_difference_after_object_move": 0.0,
+    "weight_samples": {
+      "row_0_col_0": {
+        "binary": 2.7140281688708967e-10,
+        "smoothed": 0.5498340129852295
+      },
+      "row_80_col_80": {
+        "binary": 0.5986876487731934,
+        "smoothed": 3.043921902853426e-20
+      },
+      "row_90_col_90": {
+        "binary": 0.19781611859798431,
+        "smoothed": 1.063494057240441e-22
+      },
+      "row_200_col_200": {
+        "binary": 7.145567774632933e-13,
+        "smoothed": 0.0
+      },
+      "row_399_col_399": {
+        "binary": 2.5672485152546497e-37,
+        "smoothed": 0.0
+      }
+    },
+    "focal": {
+      "binary": {
+        "implementation": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "weighted_bce": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "compact_logpt": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "max_abs_difference_from_compact_logpt": 0.0
+      },
+      "smoothed": {
+        "implementation": [
+          0.0005636673304252326,
+          0.6785410046577454,
+          0.21547596156597137,
+          0.0017750047845765948
+        ],
+        "weighted_bce": [
+          0.0005636673304252326,
+          0.6785410046577454,
+          0.21547596156597137,
+          0.0017750047845765948
+        ],
+        "compact_logpt": [
+          0.0004129105946049094,
+          0.6532692909240723,
+          0.207450732588768,
+          0.0013002674095332623
+        ],
+        "max_abs_difference_from_compact_logpt": 0.025271713733673096
+      }
+    }
+  },
+  "checks_passed": [
+    "binary weight map changes when the object moves",
+    "smoothed weight map is identical when the object moves",
+    "smoothed targets and complements have no zero pixels",
+    "smoothed weights equal distance weights of all-nonzero arrays",
+    "smoothed empty mask has the same weight map",
+    "smoothed full mask has the same weight map",
+    "unsmoothed empty/full masks use constant 0.5 weights",
+    "binary focal loss equals weighted BCE expression",
+    "binary compact log(pt) equivalence",
+    "smoothed focal loss equals weighted BCE expression",
+    "smoothed compact log(pt) equivalence",
+    "744997c loss executable AST matches current",
+    "580601f loss executable AST matches current",
+    "2be86f8 loss executable AST matches current",
+    "HEAD loss executable AST matches current",
+    "boundary_true supplementary checkpoint matches history",
+    "boundary_false supplementary checkpoint matches history",
+    "all inspected inputs remain unchanged"
+  ],
+  "historical_loss_comparisons": [
+    {
+      "revision": "744997ccf920fbb3d5735f419db75c2c2b79d2e9",
+      "path": "src/tb_diagnosis/models/losses.py",
+      "date": "2026-01-03T10:24:14+03:30",
+      "source_sha256": "7e097ab4016fecff763611225f76e5c3c1e248aa9bb049585bd5bed34dbcb1be",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "580601f439bc7dacbc0757eb727732f0a9426ef7",
+      "path": "src/tb_diagnosis/models/losses.py",
+      "date": "2026-02-02T17:06:53+03:30",
+      "source_sha256": "7e097ab4016fecff763611225f76e5c3c1e248aa9bb049585bd5bed34dbcb1be",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "2be86f85122b313eabc6bd464bbb5dcb4229199c",
+      "path": "src/afb_segmentation/models/loss/segmentation.py",
+      "date": "2026-10-23T16:39:45+03:30",
+      "source_sha256": "afc2b606e30c4a22f09eb5151c2a6bdb5903b8da71e6e389f6acba6b32393b49",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "8451b0c52c226762c2513249fa470ba6e4112b6e",
+      "path": "src/afb_segmentation/models/loss/segmentation.py",
+      "date": "2026-10-30T17:22:11+03:30",
+      "source_sha256": "17aa67a8e269facc8f1b53e0a080fa947f2e602f20c404a7fb12514a8a4f9ae3",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    }
+  ],
+  "boundary_enable_change": {
+    "revision": "02379ae82ee31fb8f05d5441f2bf832a13f6ed8a",
+    "parent_flag": false,
+    "new_flag": true,
+    "path": "src/afb_segmentation/models/training/unet_components.py",
+    "evidence": "commit 02379ae82ee31fb8f05d5441f2bf832a13f6ed8a\nAuthor: alireza <alirezavahdani@cartesianlabs.io>\nDate:   Fri Oct 30 14:00:35 2026 +0330\n\n    question 7\n\ndiff --git a/src/afb_segmentation/models/training/unet_components.py b/src/afb_segmentation/models/training/unet_components.py\nindex b54547b..f54f29d 100644\n--- a/src/afb_segmentation/models/training/unet_components.py\n+++ b/src/afb_segmentation/models/training/unet_components.py\n@@ -92,12 +92,12 @@ def get_loss_fn(cfg: UnetConfig) -> nn.Module:\n     Returns\n     -------\n     loss_fn : nn.Module\n-        Compound Dice/focal loss with boundary loss disabled.\n+        Compound Dice/focal/boundary loss.\n \n     Notes\n     -----\n     The component weights and focal parameters come from ``cfg``. Boundary\n-    loss is disabled in the constructed ``CompoundLoss``.\n+    loss is enabled in the constructed ``CompoundLoss``.\n     \"\"\"\n     return CompoundLoss(\n         dice_weight=cfg.dice_weight,\n@@ -105,7 +105,7 @@ def get_loss_fn(cfg: UnetConfig) -> nn.Module:\n         boundary_weight=cfg.boundary_weight,\n         focal_alpha=cfg.focal_alpha,\n         focal_gamma=cfg.focal_gamma,\n-        use_boundary=False,\n+        use_boundary=True,\n     )\n \n \n"
+  },
+  "checkpoints": [
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/best.pt",
+      "sha256": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 1,
+        "val_metrics": {
+          "loss": 0.14292187988758087,
+          "accuracy": 0.9845436215400696,
+          "precision": 0.741014838218689,
+          "recall": 0.918572187423706,
+          "f1": 0.8202951550483704,
+          "iou": 0.6953393816947937,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.4398999985074624
+        }
+      },
+      "history_epoch_present": true,
+      "checkpoint_validation_loss_matches_history": true,
+      "checkpoint_validation_f1_matches_history": true
+    },
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/last.pt",
+      "sha256": "6e934beea722fefd4508c171cadc118db09221da48a97e841bb14c801dc18ac0",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 12,
+        "val_metrics": {
+          "loss": 0.10355854034423828,
+          "accuracy": 0.9890270233154297,
+          "precision": 0.8055245876312256,
+          "recall": 0.9416019916534424,
+          "f1": 0.8682639598846436,
+          "iou": 0.767196536064148,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5847999963909387
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/epoch_024_last.pt",
+      "sha256": "0330e9981e34e7876d9799fa137916a3ffd57b461671a847ebe2a1a5031c5090",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 24,
+        "val_metrics": {
+          "loss": 0.09832324832677841,
+          "accuracy": 0.9897698760032654,
+          "precision": 0.8230874538421631,
+          "recall": 0.9344713687896729,
+          "f1": 0.875249981880188,
+          "iou": 0.7781728506088257,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.60450000166893
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/best.pt",
+      "sha256": "72f77fcb8ec54a2a21dcf96181fb4cd78aec9ef704a51ccaf529ed3aa54a0776",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 1,
+        "val_metrics": {
+          "loss": 0.1392759531736374,
+          "accuracy": 0.9858337044715881,
+          "precision": 0.7601741552352905,
+          "recall": 0.9220018982887268,
+          "f1": 0.8333039879798889,
+          "iou": 0.7142426371574402,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.4792999979108572
+        }
+      },
+      "history_epoch_present": true,
+      "checkpoint_validation_loss_matches_history": true,
+      "checkpoint_validation_f1_matches_history": true
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/last.pt",
+      "sha256": "fd7686a853280e75d926724d4965e54fd4fde1d57a31f5db8ab10f5ccc1d45e5",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 12,
+        "val_metrics": {
+          "loss": 0.10742776095867157,
+          "accuracy": 0.9895945191383362,
+          "precision": 0.837232768535614,
+          "recall": 0.9049888849258423,
+          "f1": 0.8697932958602905,
+          "iou": 0.7695878148078918,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5877000030130148
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/epoch_030_last.pt",
+      "sha256": "0f13a9e5257a03499f9cc4f370a59899ddafef8166d6d91490b040ac1b90fcdb",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 30,
+        "val_metrics": {
+          "loss": 0.10801813751459122,
+          "accuracy": 0.9898200035095215,
+          "precision": 0.8459793925285339,
+          "recall": 0.8985069394111633,
+          "f1": 0.8714523315429688,
+          "iou": 0.7721892595291138,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5927000004798174
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_true/best.pt",
+      "sha256": "4e356b7bfc5b4476068fbe93e05f314a005b50caa2da4331b3255acc52cca319",
+      "keys": [
+        "model_state_dict",
+        "epoch",
+        "val_loss",
+        "val_pixel_dice",
+        "use_boundary",
+        "seed"
+      ],
+      "metadata": {
+        "epoch": 3,
+        "val_loss": 0.11103325307369233,
+        "val_pixel_dice": 0.8601859872510464,
+        "use_boundary": true,
+        "seed": 20261031
+      },
+      "checkpoint_validation_loss_matches_history": true
+    },
+    {
+      "path": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_false/best.pt",
+      "sha256": "471a5f27102541c3822b17a17fee5f80dc68c54310986cef85b4f68cabece3c4",
+      "keys": [
+        "model_state_dict",
+        "epoch",
+        "val_loss",
+        "val_pixel_dice",
+        "use_boundary",
+        "seed"
+      ],
+      "metadata": {
+        "epoch": 4,
+        "val_loss": 0.11719573512673379,
+        "val_pixel_dice": 0.8495653589935975,
+        "use_boundary": false,
+        "seed": 20261031
+      },
+      "checkpoint_validation_loss_matches_history": true
+    }
+  ],
+  "input_sha256_before": {
+    "artifacts/analysis/equation_loss_verification_20261107/verify_loss.py": "d725da996f94e2261da64221d013b22ae69f8041d5cc42a483dc48867c2728e9",
+    "src/afb_segmentation/models/loss/segmentation.py": "17aa67a8e269facc8f1b53e0a080fa947f2e602f20c404a7fb12514a8a4f9ae3",
+    "src/afb_segmentation/models/training/segmentation_epochs.py": "16c54508fc1c67fc0e0988cd4057257e61bb4e33be6282e63933c7ec4f942954",
+    "src/afb_segmentation/models/training/unet_components.py": "fa17bfb3350fb416796ef1f8ae007f01e95da038b86ba63c9d77a0f579576f9d",
+    "src/afb_segmentation/models/training/unet_trainer.py": "87b60aef9517abffc88646b9a9493cfc5c0d69d6b71f4336d74d8f41544b7b4a",
+    "src/afb_segmentation/models/config.yml": "a06ee92547696d322a678fff16158e7907e3817ae8f342fbc7a8f1d51e9a9aec",
+    "docs/paper/my-paper/word/Manuscript 14050514.docx": "d9ef69e361cdfd32a0efd64645555c7515d061e011089797638af1734a33f199",
+    "artifacts/models/unet/with_augmentation/results/train_history.csv": "f8549fea07ec69068fdebb0c74c96526473755e9f91c2ea3c8cc81a91a7fde82",
+    "artifacts/models/unet/with_augmentation/results/test_results.csv": "f357e32d0d53606b5ead18a38f2f127c86c9b2487604ff99e2d327464010af04",
+    "artifacts/models/unet/with_augmentation/weights/best.pt": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+    "artifacts/models/unet/with_augmentation/weights/last.pt": "6e934beea722fefd4508c171cadc118db09221da48a97e841bb14c801dc18ac0",
+    "artifacts/models/unet/with_augmentation/weights/epoch_024_last.pt": "0330e9981e34e7876d9799fa137916a3ffd57b461671a847ebe2a1a5031c5090",
+    "artifacts/models/unet/without_augmentation/results/train_history.csv": "d492d8913746a119dacaef611aa3abd9b56fb2b8afd5a78d6e03508955ee96a4",
+    "artifacts/models/unet/without_augmentation/results/test_results.csv": "da97709e31a46c97310d4cfb77d22318595be43d48dec8387a0476538c1615b5",
+    "artifacts/models/unet/without_augmentation/weights/best.pt": "72f77fcb8ec54a2a21dcf96181fb4cd78aec9ef704a51ccaf529ed3aa54a0776",
+    "artifacts/models/unet/without_augmentation/weights/last.pt": "fd7686a853280e75d926724d4965e54fd4fde1d57a31f5db8ab10f5ccc1d45e5",
+    "artifacts/models/unet/without_augmentation/weights/epoch_030_last.pt": "0f13a9e5257a03499f9cc4f370a59899ddafef8166d6d91490b040ac1b90fcdb",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_true/best.pt": "4e356b7bfc5b4476068fbe93e05f314a005b50caa2da4331b3255acc52cca319",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_false/best.pt": "471a5f27102541c3822b17a17fee5f80dc68c54310986cef85b4f68cabece3c4",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/run_lowload_ablation.py": "d41f6c5ff04f4dcaa28aa67f3dd54c854f4f17860326868a79e0cbff0fc65c04",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/unet_training.json": "df2774055010f18d62f9298c4944b3be6e397f58babb84435179d2da95a7bf0d",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_true/history.csv": "8a270b76a9385fc128051cd72580cc709970448b39016391e486574e0b046030",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_false/history.csv": "c76180e5d0f7d0ae460491cd41ed5f02a4ec0d956171140e57a9f90c9c62a330",
+    "artifacts/analysis/reviewer_q4_lowload_20261030/summary.json": "1bce2eb54732b55325c166862465d9302b8b354f8f723783e5997f2c187645df"
+  },
+  "original_unet_file_inventory": [
+    "artifacts/models/unet/.DS_Store",
+    "artifacts/models/unet/with_augmentation/.DS_Store",
+    "artifacts/models/unet/with_augmentation/results/calibration_bins.csv",
+    "artifacts/models/unet/with_augmentation/results/calibration_metrics.csv",
+    "artifacts/models/unet/with_augmentation/results/reliability_diagram.png",
+    "artifacts/models/unet/with_augmentation/results/test_results.csv",
+    "artifacts/models/unet/with_augmentation/results/train_history.csv",
+    "artifacts/models/unet/with_augmentation/results/uncertainty_aggregate.csv",
+    "artifacts/models/unet/with_augmentation/results/uncertainty_per_sample.csv",
+    "artifacts/models/unet/with_augmentation/weights/best.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_001_best.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_001_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_002_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_003_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_004_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_005_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_006_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_007_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_008_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_009_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_010_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_011_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_012_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_013_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_014_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_015_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_016_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_017_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_018_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_019_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_020_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_021_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_022_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_023_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/epoch_024_last.pt",
+    "artifacts/models/unet/with_augmentation/weights/last.pt",
+    "artifacts/models/unet/without_augmentation/.DS_Store",
+    "artifacts/models/unet/without_augmentation/results/calibration_bins.csv",
+    "artifacts/models/unet/without_augmentation/results/calibration_metrics.csv",
+    "artifacts/models/unet/without_augmentation/results/reliability_diagram.png",
+    "artifacts/models/unet/without_augmentation/results/test_results.csv",
+    "artifacts/models/unet/without_augmentation/results/train_history.csv",
+    "artifacts/models/unet/without_augmentation/results/uncertainty_aggregate.csv",
+    "artifacts/models/unet/without_augmentation/results/uncertainty_per_sample.csv",
+    "artifacts/models/unet/without_augmentation/weights/best.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_001_best.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_001_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_002_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_003_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_004_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_005_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_006_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_007_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_008_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_009_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_010_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_011_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_012_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_013_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_014_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_015_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_016_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_017_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_018_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_019_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_020_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_021_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_022_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_023_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_024_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_025_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_026_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_027_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_028_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_029_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/epoch_030_last.pt",
+    "artifacts/models/unet/without_augmentation/weights/last.pt"
+  ],
+  "limitations": [
+    "Original checkpoints do not identify the run configuration or source commit.",
+    "Git history alone cannot exclude uncommitted code used for a historical run.",
+    "Supplementary script imports the project loss module without recording its source hash at training time.",
+    "Synthetic results establish implementation behavior, not the effect of a correction on trained model performance."
+  ],
+  "input_sha256_after_matches_before": true
+}

@@ -1,0 +1,111 @@
+{
+  "case": "cuda_mc10",
+  "device": "cuda:0",
+  "mode": "mc10",
+  "images": 2,
+  "repeats": 1,
+  "measurements": 2,
+  "stages_ms": {
+    "read_decode_ms": {
+      "mean": 3.579185500711901,
+      "median": 3.579185500711901,
+      "std": 0.010028897138884302,
+      "p95": 3.585567851769156,
+      "min": 3.5720939995371737,
+      "max": 3.5862770018866286
+    },
+    "yolo_predict_ms": {
+      "mean": 14.25646400093683,
+      "median": 14.25646400093683,
+      "std": 1.5162561403221089,
+      "p95": 15.221403499890584,
+      "min": 13.184309002099326,
+      "max": 15.328618999774335
+    },
+    "yolo_output_ms": {
+      "mean": 4.348599499280681,
+      "median": 4.348599499280681,
+      "std": 1.3181340154847092,
+      "p95": 5.187454850056383,
+      "min": 3.4165379984187894,
+      "max": 5.2806610001425724
+    },
+    "distance_filter_ms": {
+      "mean": 4.015484997580643,
+      "median": 4.015484997580643,
+      "std": 0.2430637127630771,
+      "p95": 4.170169797180279,
+      "min": 3.843612998025492,
+      "max": 4.187356997135794
+    },
+    "tensor_transfer_ms": {
+      "mean": 0.6887850013299612,
+      "median": 0.6887850013299612,
+      "std": 8.768159982262103e-05,
+      "p95": 0.6888408015583991,
+      "min": 0.6887230010761414,
+      "max": 0.6888470015837811
+    },
+    "unet_ms": {
+      "mean": 188.3645805010019,
+      "median": 188.3645805010019,
+      "std": 3.002982797626942,
+      "p95": 190.27566705099161,
+      "min": 186.24115100101335,
+      "max": 190.48801000099047
+    },
+    "output_transfer_ms": {
+      "mean": 0.44464899838203564,
+      "median": 0.44464899838203564,
+      "std": 0.0889002930283117,
+      "p95": 0.501224798426847,
+      "min": 0.3817869983322453,
+      "max": 0.507510998431826
+    },
+    "end_to_end_ms": {
+      "mean": 215.69774849922396,
+      "median": 215.69774849922396,
+      "std": 6.179453537963856,
+      "p95": 219.63032864987326,
+      "min": 211.32821499850252,
+      "max": 220.0672819999454
+    }
+  },
+  "serial_images_per_second": 4.636117006124419,
+  "repeat_mean_end_to_end_ms": [
+    215.69774849922396
+  ],
+  "process_rss_before_measurement_mib": 1351.625,
+  "process_peak_rss_sampled_mib": 1360.328125,
+  "process_lifetime_high_water_rss_mib": 1357.68359375,
+  "cuda_peak_allocated_mib": 526.27685546875,
+  "cuda_peak_reserved_mib": 702.0,
+  "model_load_seconds": 0.2153051069981302,
+  "warmup_end_to_end_ms": [
+    504.5406700010062
+  ],
+  "yolo_parameters_before_inference_fusion": 27617459,
+  "yolo_parameters_after_inference_fusion": 27585363,
+  "unet_parameters": 1885287,
+  "unet_checkpoint_epoch": 1,
+  "unet_architecture": {
+    "dropout": 0.21,
+    "depth": 2,
+    "scale_factor": 1
+  },
+  "python": "3.12.10 (main, Nov  3 2025, 14:42:40) [GCC 13.3.0]",
+  "torch": "2.7.1+cu126",
+  "ultralytics": "8.3.227",
+  "opencv": "4.11.0",
+  "numpy": "2.3.4",
+  "torch_cpu_threads_after_warmup": 8,
+  "opencv_threads": 1,
+  "torch_interop_threads": 1,
+  "cudnn_benchmark": false,
+  "cudnn_allow_tf32": true,
+  "matmul_allow_tf32": false,
+  "model_dtypes": {
+    "yolo": "torch.float32",
+    "unet": "torch.float32"
+  }
+}

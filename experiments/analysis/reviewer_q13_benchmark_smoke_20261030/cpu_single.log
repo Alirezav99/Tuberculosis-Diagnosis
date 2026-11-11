@@ -1,0 +1,3 @@
+cpu_single: warmup complete; first call 473.3 ms
+cpu_single: repeat 1 finished in 0.8 s
+cpu_single: completed; mean 397.7 ms

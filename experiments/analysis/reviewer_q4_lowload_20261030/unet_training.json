@@ -1,0 +1,20 @@
+{
+  "architecture": "AttentionUNetMaskPredictor from project configuration",
+  "training_images": 9653,
+  "validation_images": 1000,
+  "epochs_per_variant": 4,
+  "batch_size": 10,
+  "optimizer": "Adam",
+  "learning_rate": 0.0005,
+  "label_smoothing": 0.08,
+  "dice_weight": 0.7236,
+  "focal_weight": 0.3344,
+  "boundary_weight": 0.19,
+  "initial_state_sha256": "33008bad1172a796eb98f889e2baba71bc4f0c34b369e7b0ffe713f170f39d83",
+  "variants": {
+    "boundary_true": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_true/best.pt",
+    "boundary_false": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_false/best.pt"
+  },
+  "checkpoint_selection": "Minimum validation compound loss with a 4-epoch cap and early-stopping patience of 3 consecutive non-improving epochs; validation split is the existing higher-load DDS3 validation set.",
+  "training_order": "Both variants use the same initial state, seed, and shuffled loader generator seed."
+}

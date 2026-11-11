@@ -1,0 +1,18 @@
+{
+  "seed": 20261030,
+  "holdout_fraction_per_low_count_stratum": 0.2,
+  "selection": "Stratified random holdout from the pre-existing training split; component count is a proxy, not a clinical load label.",
+  "counts_by_partition_and_stratum": {
+    "test_low/low_1_2": 304,
+    "test_low/low_3_10": 218,
+    "test_low/negative_0": 678,
+    "train/higher_gt10": 4854,
+    "train/low_1_2": 1214,
+    "train/low_3_10": 871,
+    "train/negative_0": 2714
+  },
+  "train_images": 9653,
+  "heldout_lowload_images": 1200,
+  "exact_image_hash_overlap_with_validation_or_test": 0,
+  "exact_image_hash_overlap_between_train_and_lowload_holdout": 0
+}

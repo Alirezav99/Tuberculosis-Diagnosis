@@ -1,0 +1,347 @@
+{
+  "checks_passed": 18,
+  "synthetic": {
+    "shape": [
+      1,
+      1,
+      400,
+      400
+    ],
+    "smoothing": 0.08,
+    "target_values": [
+      0.03999999910593033,
+      0.9600000381469727
+    ],
+    "binary_weights": {
+      "min": 2.5672485152546497e-37,
+      "max": 0.5986876487731934,
+      "mean": 0.004773525266332273,
+      "sum": 763.7640426131636,
+      "nonzero_pixels": 160000,
+      "total_pixels": 160000
+    },
+    "smoothed_weights": {
+      "min": 0.0,
+      "max": 0.5498340129852295,
+      "mean": 8.10781333146783e-05,
+      "sum": 12.972501330348528,
+      "nonzero_pixels": 53679,
+      "total_pixels": 160000
+    },
+    "binary_max_abs_difference_after_object_move": 0.5986876487731934,
+    "smoothed_max_abs_difference_after_object_move": 0.0,
+    "weight_samples": {
+      "row_0_col_0": {
+        "binary": 2.7140281688708967e-10,
+        "smoothed": 0.5498340129852295
+      },
+      "row_80_col_80": {
+        "binary": 0.5986876487731934,
+        "smoothed": 3.043921902853426e-20
+      },
+      "row_90_col_90": {
+        "binary": 0.19781611859798431,
+        "smoothed": 1.063494057240441e-22
+      },
+      "row_200_col_200": {
+        "binary": 7.145567774632933e-13,
+        "smoothed": 0.0
+      },
+      "row_399_col_399": {
+        "binary": 2.5672485152546497e-37,
+        "smoothed": 0.0
+      }
+    },
+    "focal": {
+      "binary": {
+        "implementation": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "weighted_bce": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "compact_logpt": [
+          0.00015210016863420606,
+          0.7732846736907959,
+          0.21620307862758636,
+          0.000544010370504111
+        ],
+        "max_abs_difference_from_compact_logpt": 0.0
+      },
+      "smoothed": {
+        "implementation": [
+          0.0005636673304252326,
+          0.6785410046577454,
+          0.21547596156597137,
+          0.0017750047845765948
+        ],
+        "weighted_bce": [
+          0.0005636673304252326,
+          0.6785410046577454,
+          0.21547596156597137,
+          0.0017750047845765948
+        ],
+        "compact_logpt": [
+          0.0004129105946049094,
+          0.6532692909240723,
+          0.207450732588768,
+          0.0013002674095332623
+        ],
+        "max_abs_difference_from_compact_logpt": 0.025271713733673096
+      }
+    }
+  },
+  "historical_loss_comparisons": [
+    {
+      "revision": "744997ccf920fbb3d5735f419db75c2c2b79d2e9",
+      "path": "src/tb_diagnosis/models/losses.py",
+      "date": "2026-01-03T10:24:14+03:30",
+      "source_sha256": "7e097ab4016fecff763611225f76e5c3c1e248aa9bb049585bd5bed34dbcb1be",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "580601f439bc7dacbc0757eb727732f0a9426ef7",
+      "path": "src/tb_diagnosis/models/losses.py",
+      "date": "2026-02-02T17:06:53+03:30",
+      "source_sha256": "7e097ab4016fecff763611225f76e5c3c1e248aa9bb049585bd5bed34dbcb1be",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "2be86f85122b313eabc6bd464bbb5dcb4229199c",
+      "path": "src/afb_segmentation/models/loss/segmentation.py",
+      "date": "2026-10-23T16:39:45+03:30",
+      "source_sha256": "afc2b606e30c4a22f09eb5151c2a6bdb5903b8da71e6e389f6acba6b32393b49",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    },
+    {
+      "revision": "8451b0c52c226762c2513249fa470ba6e4112b6e",
+      "path": "src/afb_segmentation/models/loss/segmentation.py",
+      "date": "2026-10-30T17:22:11+03:30",
+      "source_sha256": "17aa67a8e269facc8f1b53e0a080fa947f2e602f20c404a7fb12514a8a4f9ae3",
+      "class_ast_matches_current_ignoring_docstrings": {
+        "BoundaryLoss": true,
+        "FocalLoss": true,
+        "DiceLoss": true,
+        "CompoundLoss": true
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/best.pt",
+      "sha256": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 1,
+        "val_metrics": {
+          "loss": 0.14292187988758087,
+          "accuracy": 0.9845436215400696,
+          "precision": 0.741014838218689,
+          "recall": 0.918572187423706,
+          "f1": 0.8202951550483704,
+          "iou": 0.6953393816947937,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.4398999985074624
+        }
+      },
+      "history_epoch_present": true,
+      "checkpoint_validation_loss_matches_history": true,
+      "checkpoint_validation_f1_matches_history": true
+    },
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/last.pt",
+      "sha256": "6e934beea722fefd4508c171cadc118db09221da48a97e841bb14c801dc18ac0",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 12,
+        "val_metrics": {
+          "loss": 0.10355854034423828,
+          "accuracy": 0.9890270233154297,
+          "precision": 0.8055245876312256,
+          "recall": 0.9416019916534424,
+          "f1": 0.8682639598846436,
+          "iou": 0.767196536064148,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5847999963909387
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/with_augmentation/weights/epoch_024_last.pt",
+      "sha256": "0330e9981e34e7876d9799fa137916a3ffd57b461671a847ebe2a1a5031c5090",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 24,
+        "val_metrics": {
+          "loss": 0.09832324832677841,
+          "accuracy": 0.9897698760032654,
+          "precision": 0.8230874538421631,
+          "recall": 0.9344713687896729,
+          "f1": 0.875249981880188,
+          "iou": 0.7781728506088257,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.60450000166893
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/best.pt",
+      "sha256": "72f77fcb8ec54a2a21dcf96181fb4cd78aec9ef704a51ccaf529ed3aa54a0776",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 1,
+        "val_metrics": {
+          "loss": 0.1392759531736374,
+          "accuracy": 0.9858337044715881,
+          "precision": 0.7601741552352905,
+          "recall": 0.9220018982887268,
+          "f1": 0.8333039879798889,
+          "iou": 0.7142426371574402,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.4792999979108572
+        }
+      },
+      "history_epoch_present": true,
+      "checkpoint_validation_loss_matches_history": true,
+      "checkpoint_validation_f1_matches_history": true
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/last.pt",
+      "sha256": "fd7686a853280e75d926724d4965e54fd4fde1d57a31f5db8ab10f5ccc1d45e5",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 12,
+        "val_metrics": {
+          "loss": 0.10742776095867157,
+          "accuracy": 0.9895945191383362,
+          "precision": 0.837232768535614,
+          "recall": 0.9049888849258423,
+          "f1": 0.8697932958602905,
+          "iou": 0.7695878148078918,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5877000030130148
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/models/unet/without_augmentation/weights/epoch_030_last.pt",
+      "sha256": "0f13a9e5257a03499f9cc4f370a59899ddafef8166d6d91490b040ac1b90fcdb",
+      "keys": [
+        "model_state_dict",
+        "optimizer_state_dict",
+        "epoch",
+        "val_metrics",
+        "scheduler_state_dict"
+      ],
+      "metadata": {
+        "epoch": 30,
+        "val_metrics": {
+          "loss": 0.10801813751459122,
+          "accuracy": 0.9898200035095215,
+          "precision": 0.8459793925285339,
+          "recall": 0.8985069394111633,
+          "f1": 0.8714523315429688,
+          "iou": 0.7721892595291138,
+          "mAP@50": 1.0,
+          "mAP@50:95": 0.5927000004798174
+        }
+      },
+      "history_epoch_present": false
+    },
+    {
+      "path": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_true/best.pt",
+      "sha256": "4e356b7bfc5b4476068fbe93e05f314a005b50caa2da4331b3255acc52cca319",
+      "keys": [
+        "model_state_dict",
+        "epoch",
+        "val_loss",
+        "val_pixel_dice",
+        "use_boundary",
+        "seed"
+      ],
+      "metadata": {
+        "epoch": 3,
+        "val_loss": 0.11103325307369233,
+        "val_pixel_dice": 0.8601859872510464,
+        "use_boundary": true,
+        "seed": 20261031
+      },
+      "checkpoint_validation_loss_matches_history": true
+    },
+    {
+      "path": "artifacts/analysis/reviewer_q4_lowload_20261030/unet_runs/boundary_false/best.pt",
+      "sha256": "471a5f27102541c3822b17a17fee5f80dc68c54310986cef85b4f68cabece3c4",
+      "keys": [
+        "model_state_dict",
+        "epoch",
+        "val_loss",
+        "val_pixel_dice",
+        "use_boundary",
+        "seed"
+      ],
+      "metadata": {
+        "epoch": 4,
+        "val_loss": 0.11719573512673379,
+        "val_pixel_dice": 0.8495653589935975,
+        "use_boundary": false,
+        "seed": 20261031
+      },
+      "checkpoint_validation_loss_matches_history": true
+    }
+  ],
+  "inputs_unchanged": true
+}

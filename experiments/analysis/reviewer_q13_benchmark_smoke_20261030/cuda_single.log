@@ -1,0 +1,3 @@
+cuda_single: warmup complete; first call 329.3 ms
+cuda_single: repeat 1 finished in 0.1 s
+cuda_single: completed; mean 47.1 ms

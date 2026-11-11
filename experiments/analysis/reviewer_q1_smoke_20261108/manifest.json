@@ -1,0 +1,153 @@
+{
+  "started_utc": "2026-11-08T17:01:09.772533+00:00",
+  "git_commit": "6926c10f2ae2313f877c3412d8e88958b25cf736",
+  "python": "3.12.10",
+  "torch": "2.7.1+cu126",
+  "ultralytics": "8.3.227",
+  "numpy": "2.3.4",
+  "opencv": "4.11.0",
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "settings": {
+    "seed": 20261108,
+    "bootstrap_resamples": 5000,
+    "bootstrap_method": "two-sided image percentile bootstrap",
+    "yolo_confidence": 0.25,
+    "unet_threshold": 0.5,
+    "unet_batch_size": 10,
+    "unet_size": 400,
+    "yolo_imgsz": 416,
+    "fp16": false,
+    "dropout_active": false,
+    "training": false,
+    "dataset_manager_used": false,
+    "workers": 2,
+    "smoke_test": true,
+    "historical_comparison_absolute_tolerance": 1e-05
+  },
+  "config": {
+    "epochs": 40,
+    "batch_size": 10,
+    "device": "cuda",
+    "size": 400,
+    "lr": 0.0005,
+    "dropout": 0.21,
+    "optimizer": "Adam",
+    "label_smoothing": 0.08,
+    "depth": 2,
+    "scale_factor": 1,
+    "dice_weight": 0.7236,
+    "focal_weight": 0.3344,
+    "boundary_weight": 0.19,
+    "focal_alpha": 0.7815,
+    "focal_gamma": 2.18,
+    "yolo_path_with_augmentation": "artifacts/models/yolo11l-seg - True/train/weights/best.pt",
+    "yolo_path_without_augmentation": "artifacts/models/yolo11l-seg - False/train/weights/best.pt",
+    "scheduler_patience": 3,
+    "scheduler_factor": 0.8,
+    "scheduler_min_lr": "1e-8",
+    "early_stopping_patience": 10,
+    "mc_dropout_samples": 10
+  },
+  "protected_sha256": {
+    "artifacts/models/yolo11l-seg - True/train/weights/best.pt": "b03e225c03ea6b299166573b4dd728f9b1eebe668a8a4416ac66d20a35605e0d",
+    "artifacts/models/unet/with_augmentation/weights/best.pt": "30468663e3e00433ff4d8d40ddccd2f869d90272c934709c72ebde7b90b0fedf",
+    "artifacts/models/unet/with_augmentation/results/test_results.csv": "f357e32d0d53606b5ead18a38f2f127c86c9b2487604ff99e2d327464010af04",
+    "experiments/analysis/confidence_intervals.py": "7790e2c34d24838811a8bd2965a61dc56e9b6fe436a81e28f9af9cdf3cb779c5",
+    "src/afb_segmentation/models/config.yml": "a06ee92547696d322a678fff16158e7907e3817ae8f342fbc7a8f1d51e9a9aec",
+    "src/afb_segmentation/data_pipeline/load/dataset.py": "34b2c849bab5407d0efbfae6eb82c1b385ce05a864a9b9b8cd4628e5b404169c",
+    "src/afb_segmentation/utils/image_filtering.py": "a97e6d496e00076372b9955d6bd376c512e6a12e8e11affa02c26d1a2820e84d",
+    "src/afb_segmentation/utils/yolo.py": "31b5172942b6fdc868b318903eaf9022904c0cff7ed17c533d1b6a7c1dedff95",
+    "src/afb_segmentation/models/architectures/unet.py": "72bedd9f1e8b174c14de6550a6b90692d692d3158e0c1ed2b7b8dcd5948a305c",
+    "src/afb_segmentation/models/metrics/instance_segmentation.py": "b667af18b190f124eb9d96f80b3a8724c23e0696b7752ba62826a8aa7c9fcc9c",
+    "src/afb_segmentation/models/training/segmentation_epochs.py": "16c54508fc1c67fc0e0988cd4057257e61bb4e33be6282e63933c7ec4f942954"
+  },
+  "images": [
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC919.png",
+      "image_sha256": "177599d7672ab9a756561b3d86263694be73c2e5852cae932c6ca6e320ee6c7b",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC919.png",
+      "mask_sha256": "938ffc4017052fc53c81f26538aae5a5ebf8913209e740704449fccebedd9796"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC96.png",
+      "image_sha256": "972f57689bbac03f5953b77f3100af9de336b329c520691cda1112a4fcad601e",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC96.png",
+      "mask_sha256": "0b88f2948613c25fec993fe2a10248996b2e689e65ab57dc39744b50c045caf9"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC275.png",
+      "image_sha256": "8d9e243354aa1b2cc1befb69c861a7e2d75585cf21a83d96f03df8711acc6d9e",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC275.png",
+      "mask_sha256": "1ca68e0f99378004f1a2e173fc9c0e15d990a5bae1b56205086e44d16c763774"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC24.png",
+      "image_sha256": "bbc22aaad3b7ebb77c6f4671a21afb69e69a68cfce60088dcf18b98d2cd31d86",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC24.png",
+      "mask_sha256": "b7a881acae70a5364a1dc12c1ab6bc121262ef859a7bd57c711128d17728be6b"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC562.png",
+      "image_sha256": "347c60576af83d5ac8fdb8210f0e83938ab7adf05078dbcfcbd8e3d499090d5c",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC562.png",
+      "mask_sha256": "c5afc1a732bc42b108c9f521cd51ecf7101ed65f3adeec0c86bfab14cb2c98a2"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC724.png",
+      "image_sha256": "b1ac7819d4eb121cd206fa11c2203a727030521c23679d181e030be5f0900b62",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC724.png",
+      "mask_sha256": "8dbc9cc8caffac942cf651dd6419e01f6fa901e53ed771db8e4abf3cd2de0a63"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC395.png",
+      "image_sha256": "4e5c81a85b52dd8ea37c860923fc23c9255fd0b44622f50ad7ce7fcbbb4e9849",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC395.png",
+      "mask_sha256": "99f65f9386026c06b62917f68cf0d00ea94c28b5b7e9bc6dac120da4b1aee937"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC567.png",
+      "image_sha256": "13ad9e6227c2578795276786d4ce4c3770411910d551cd026322fb108c2b0f20",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC567.png",
+      "mask_sha256": "675f778ee87eaad3bb165155e0ed7c60a20579639e589b7825fd40457c1eb03e"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC697.png",
+      "image_sha256": "f30cc12f4b1a28fb3defda29f3a1c5a0c7fe16f1f1c7b28ea2ad63ef9c73569a",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC697.png",
+      "mask_sha256": "c909ae79ffa177ddbf72eded760e501060b4a7b3f8fe27b1ebd3c874428d77e8"
+    },
+    {
+      "image": "artifacts/dataset/dds3-restructured/test/images/MSC723.png",
+      "image_sha256": "895b8c01309f2a7578e748e9e8d1de5589f84b6205b39abc6261673c87f7a8ba",
+      "mask": "artifacts/dataset/dds3-restructured/test/masks/MSC723.png",
+      "mask_sha256": "4786e3bba6d27a3dda455b2bc87883dce6ae0b0b93c24c8be399e61816ad46f6"
+    }
+  ],
+  "limitations": [
+    "Fixed trained model; no assessment of independent training-run variability.",
+    "Mosaic-image resampling; unknown slide/patient clustering is not accounted for.",
+    "Legacy AP scores are image-mean precision-based component scores, not standard confidence-ranked AP.",
+    "Single-pass evaluation matches the saved score evaluator; MC Dropout is disabled.",
+    "Code uses YOLO confidence 0.25, whereas the Word manuscript states 0.5."
+  ],
+  "unet_checkpoint_epoch": 1,
+  "input_integrity": {
+    "unchanged": true,
+    "changed": []
+  },
+  "historical_scores_reproduced": false,
+  "prediction_sha256": {
+    "MSC919.npz": "9da7b0f90b3b38a1fc7fdf7112c5c6da24746162f04bdceed2974e04fa096c2f",
+    "MSC96.npz": "b50b8ec8b15d470e86a65810f4c0bfc1e64b7be534bab3db07321339a4ed8a3a",
+    "MSC275.npz": "53d327722d6e89be6a6503a97c11eeda3033eda8bea31b73fcca366d81aa2709",
+    "MSC24.npz": "f55940b403a39218282df42401befdacec2c4dfd6219112bede34cda3a3e7556",
+    "MSC562.npz": "189d3a0a530551efa8c200a8b150a5fd6aea11519573ae5dc637991292356321",
+    "MSC724.npz": "92e16d98a70f9be5b6862463ad02a8350a5fc8856393c3108e3466b72bda52b0",
+    "MSC395.npz": "f4a6667a8eb708c1187da4f29de8292de3b4fed8b52b72526d1c3a6cf5cb372d",
+    "MSC567.npz": "c568d8ad977bdaa35929f822887bd0656a52de199206d84478d8577b885995a9",
+    "MSC697.npz": "f52c63f845a85236f49891f0aea71f978cab6f615fd0097ca40f2196b9f54990",
+    "MSC723.npz": "b45b297877ba0b883b1d8e369f0db9bef2c836b1359400065a2b1446c40436ac"
+  },
+  "elapsed_seconds": 4.437011917936616,
+  "status": "smoke_test"
+}
